@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="disep2.css">
+
+    <style>
+        body {
+            background-image: url('https://drive.google.com/uc?id=1P7yX5KfI_sgJH-fMfUZamI6hKY8ZOBTT');
+            background-size: cover;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>BOTONES DE AYUDA</h1>
+    
+    <h2>INFORMACION</h2>
+
+    <button class="Volver" type="button" onclick="goToHomePage()">Volver a la página principal</button>
+
+    <button class="BotonAndroid" id="ButtonAndroid" onclick="toggleTextBox1()">Instrucciones Acceso directo Android</button>
+    <button class="BotonIOS" id="toggleButton2" onclick="toggleTextBox2()">Instrucciones Acceso directo IOS</button>
+
+
+    <textarea class="texto1" id="textBoxAndroid" readonly rows="9" cols="100">
+        1. Entrar a la App
+        2. Apretar los 3 puntos de la parte superior derecha
+        3. Escoger la opcion de Agregar a la pantalla principal
+        4. Colocar el nombre que deseada
+        5. Aceptar y verificar su creacion
+    </textarea>
+
+    <textarea class="texto2" id="textBoxIOS" readonly rows="9" cols="40">
+        1. Entrar a la App
+        2. Entrar a opciones de compartir(3ra opcion en la parte inferior de la pantalla)
+        3. Escoger la opcion de Agregar a inicio
+        4. Colocar el nombre que deseada
+        5. Aceptar y verificar su creacion
+    </textarea>
+
+    <script>
+        
+        var textBoxVisible = false;
+
+        function toggleTextBox1() {
+            var textBox = document.getElementById("textBoxAndroid");
+
+            // Cambiar visibilidad de la caja de texto
+            textBox.style.display = textBoxVisible ? "none" : "block";
+
+            // Cambiar el estado de visibilidad
+            textBoxVisible = !textBoxVisible;
+        }
+        
+        // Ocultar la caja de texto al cargar la página (opcional)
+        window.onload = function () {
+            var textBox = document.getElementById("textBoxAndroid");
+            textBox.style.display = "none";
+        };
+
+        var textBoxVisible = false;
+
+        function toggleTextBox2() {
+            var textBox = document.getElementById("textBoxIOS");
+
+            // Cambiar visibilidad de la caja de texto
+            textBox.style.display = textBoxVisible ? "none" : "block";
+
+            // Cambiar el estado de visibilidad
+            textBoxVisible = !textBoxVisible;
+        }
+        
+        // Ocultar la caja de texto al cargar la página (opcional)
+        window.onload = function () {
+            var textBox = document.getElementById("textBoxIOS");
+            textBox.style.display = "none";
+        };
+
+        function goToHomePage() {
+            window.location.href = 'index.html';  // Cambia 'index.html' al nombre de tu página principal si es diferente
+        }
+
+    </script>
+
+    <textarea class="INFOR" readonly rows="8" cols="40">
+        Este programa se basa en la graficacion a partir de los datos que recuperamos a partir de una fecha y la cual se muestra en una tabla con los 10 datos de informacion anteriores a la fecha escogida.
+        Las instrucciones para hacer funcionar el codigo es el siguiente:
+        1. Escoja un Sistema de los 10 seleccionables
+        2. Escoja una fecha del año 2022, siguiendo el formato AAAA/MM/DD
+        3. Apriete el boton de Evaluar
+        4. Ahora puede ver que se desplego una tabla y grafica a partir de los parametros escogidos
+        5. Si necesita redirigirse a la pagina de la ATT o de la Materia, solo apriete los link buttons
+    </textarea>
+
+</body>
+</html>

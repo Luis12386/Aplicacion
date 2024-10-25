@@ -1,0 +1,99 @@
+
+body {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr); /* Tres filas de igual tamaño */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
+    gap: 10px; /* Espacio entre las cajas */
+    justify-items: center; /* Centra los elementos horizontalmente */
+}
+
+h1{
+    grid-row: 1;
+    grid-column: 1;
+    text-align: center;
+    font-size: 26px;
+}
+
+h2{
+    grid-row: 1;
+    grid-column: 2;
+    text-align: center;
+    font-size: 26px;
+}
+
+.Volver {
+    grid-row: 2;
+    grid-column: 1;
+    background-color: #e2bf81;
+    padding: 10px;
+    border: 2px solid #000;
+    text-align: center;
+    border-radius: 10px;
+    width: 50%; /* Ocupa el ancho completo de la columna */
+    font-weight: bold;
+}
+
+.INFOR {
+    grid-row: 2;
+    grid-column: 2;
+    color: rgb(1, 1, 2);
+    background-color: #cca26b;
+    border: 2px solid #eb0707;
+    border-radius: 10px;
+    padding: 10px;
+    width: 80%; /* Ocupa el ancho completo de la columna */
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.BotonAndroid {
+    grid-row: 3;
+    grid-column: 1;
+    background-color: #edb34e;
+    padding: 10px;
+    border: 2px solid #000;
+    text-align: center;
+    border-radius: 10px;
+    width: 50%; /* Ocupa el ancho completo de la columna */
+    font-weight: bold;
+}
+
+.texto1 {
+    grid-row: 3;
+    grid-column: 2;
+    color: rgb(1, 1, 2);
+    background-color: #ce7d13;
+    border: 2px solid #eb0707;
+    border-radius: 10px;
+    padding: 10px;
+    width: 80%; /* Ocupa el ancho completo de la columna */
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: left;
+}
+
+.BotonIOS {
+    grid-row: 4;
+    grid-column: 1;
+    background-color: #edb34e;
+    padding: 10px;
+    border: 2px solid #000;
+    text-align: center;
+    border-radius: 10px;
+    width: 50%; /* Ocupa el ancho completo de la columna */
+    font-weight: bold;
+}
+
+.texto2 {
+    grid-row: 4;
+    grid-column: 2;
+    color: rgb(1, 1, 2);
+    background-color: #ce7d13;
+    border: 2px solid #eb0707;
+    border-radius: 10px;
+    padding: 10px;
+    width: 80%; /* Ocupa el ancho completo de la columna */
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: left;
+}

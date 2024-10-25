@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="disep1.css">
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Para iOS (iPhone o iPad) -->
+	<link rel="apple-touch-icon" sizes="180x180" href="https://drive.google.com/uc?id=1S-0xSl05E51mm6uiepqCGUMImClKnM-Y">
+
+<!-- Para Android y otros sistemas -->
+	<link rel="icon" type="image/png" sizes="192x192" href="https://drive.google.com/uc?id=1S-0xSl05E51mm6uiepqCGUMImClKnM-Y">
+
+    <style>
+        body {
+            background-image: url('https://drive.google.com/uc?id=1P7yX5KfI_sgJH-fMfUZamI6hKY8ZOBTT');
+            background-size: cover;
+            text-align: center;
+            margin:0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="titulo">SISTEMAS DE INFORMACION</h1>
+
+
+    <!-- container de tres botones superiores-->
+
+    <div class="botones_inicial">
+    <select class="dropd" id="systemDropdown">
+        <option value="Sistema1">Sistema1</option>
+        <option value="Sistema2">Sistema2</option>
+        <option value="Sistema3">Sistema3</option>
+        <option value="Sistema4">Sistema4</option>
+        <option value="Sistema5">Sistema5</option>
+        <option value="Sistema6">Sistema6</option>
+        <option value="Sistema7">Sistema7</option>
+        <option value="Sistema8">Sistema8</option>
+        <option value="Sistema9">Sistema9</option>
+        <option value="Sistema10">Sistema10</option>
+    </select>
+
+    <input class="FECHA" type="text" id="dateInput" placeholder="Seleccione la fecha" oninput="formatDate(this)">
+
+    <button class="EVALU" type="button" onclick="evaluateDate()">Evaluar</button>
+
+    </div>
+
+
+
+    <div id="table-container" class="chart-container">
+
+        <canvas id="chart" class="chart-container">
+    </canvas>
+
+
+    <script>
+
+        function clearTableAndChart() {
+            // Eliminar la tabla existente
+            var existingTable = document.querySelector("table");
+            if (existingTable) {
+                existingTable.remove();
+            }
+
+            // Eliminar el gráfico existente
+            var existingChartCanvas = document.getElementById("chart");
+            if (existingChartCanvas) {
+                existingChartCanvas.remove();
+            }
+
+            // Limpiar los datos de la tabla y la gráfica
+            FIL = 0;
+            DATO = 0;
+            punto = 0;
+
+                // Crear un nuevo elemento canvas para el gráfico
+            var newChartCanvas = document.createElement("canvas");
+            newChartCanvas.id = "chart";
+            newChartCanvas.classList.add("chart-container");
+            document.getElementById("table-container").appendChild(newChartCanvas);
+
+        }
+
+        var url;
+        var tableRows;
+
+        function formatDate(input) {
+          var value = input.value.replace(/\D/g, ''); // Eliminar caracteres no numéricos
+          if (value.length > 8) {
+            value = value.slice(0, 8); // Limitar a 8 dígitos
+          }
+          if (value.length >= 4) {
+            value = value.replace(/(\d{4})(\d{2})?(\d{2})?/, '$1/$2/$3');
+          }
+          input.value = value;
+        }
+
+
+        function evaluateDate() {
+          clearTableAndChart();
+
+          var selectedOption = document.getElementById("systemDropdown");
+          var selectedValue = selectedOption.value;
+
+          alert("El sistema seleccionado ha sido "+selectedValue);
+
+                    // Asigna la URL correspondiente en función de la opción seleccionada
+            if (selectedValue === "Sistema1") {
+              url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfaerFA12r_q6fITZ-dARNbMTjoDBtS5Lzyrpe2cBiTy0kzrDg-nQ1tim_4mxrum8rwEncDOtvQHyQ/pubhtml";
+            } else if (selectedValue === "Sistema2") {
+              url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfaerFA12r_q6fITZ-dARNbMTjoDBtS5Lzyrpe2cBiTy0kzrDg-nQ1tim_4mxrum8rwEncDOtvQHyQ/pubhtml?gid=619063995&single=true";
+            } else if (selectedValue === "Sistema3") {
+              url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfaerFA12r_q6fITZ-dARNbMTjoDBtS5Lzyrpe2cBiTy0kzrDg-nQ1tim_4mxrum8rwEncDOtvQHyQ/pubhtml?gid=372422175&single=true";
+            } else if (selectedValue === "Sistema4") {
+              url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfaerFA12r_q6fITZ-dARNbMTjoDBtS5Lzyrpe2cBiTy0kzrDg-nQ1tim_4mxrum8rwEncDOtvQHyQ/pubhtml?gid=1855355081&single=true";
+            } else if (selectedValue === "Sistema5") {
+              url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfaerFA12r_q6fITZ-dARNbMTjoDBtS5Lzyrpe2cBiTy0kzrDg-nQ1tim_4mxrum8rwEncDOtvQHyQ/pubhtml?gid=1159801805&single=true";
+            } else if (selectedValue === "Sistema6") {
+              url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfaerFA12r_q6fITZ-dARNbMTjoDBtS5Lzyrpe2cBiTy0kzrDg-nQ1tim_4mxrum8rwEncDOtvQHyQ/pubhtml?gid=1900869072&single=true";
+            } else if (selectedValue === "Sistema7") {
+              url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfaerFA12r_q6fITZ-dARNbMTjoDBtS5Lzyrpe2cBiTy0kzrDg-nQ1tim_4mxrum8rwEncDOtvQHyQ/pubhtml?gid=1684310780&single=true";
+            } else if (selectedValue === "Sistema8") {
+              url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfaerFA12r_q6fITZ-dARNbMTjoDBtS5Lzyrpe2cBiTy0kzrDg-nQ1tim_4mxrum8rwEncDOtvQHyQ/pubhtml?gid=1563623896&single=true";
+            } else if (selectedValue === "Sistema9") {
+              url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfaerFA12r_q6fITZ-dARNbMTjoDBtS5Lzyrpe2cBiTy0kzrDg-nQ1tim_4mxrum8rwEncDOtvQHyQ/pubhtml?gid=369352699&single=true";
+            } else if (selectedValue === "Sistema10") {
+              url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfaerFA12r_q6fITZ-dARNbMTjoDBtS5Lzyrpe2cBiTy0kzrDg-nQ1tim_4mxrum8rwEncDOtvQHyQ/pubhtml?gid=302933365&single=true";
+            }
+
+            var input = document.getElementById("dateInput");
+            var formattedDate = input.value;
+          // Realizar la acción deseada con la fecha formateada
+            if (formattedDate.substring(0, 4) !== "2022") {
+                alert("Por favor, ingrese una fecha válida para el año 2022.");
+                return; // No ejecutar el resto del código
+            }
+            var datePattern = /^\d{4}\/\d{2}\/\d{2}$/;
+
+
+          if (datePattern.test(formattedDate)) {
+              var day = formattedDate.substring(8, 10);
+              var month = formattedDate.substring(5, 7);
+
+              switch (month) {
+                case "01":
+                  DATO = 2;
+                  break;
+                case "02":
+                  DATO = 33;
+                  break;
+                case "03":
+                  DATO = 61;
+                  break;
+                case "04":
+                  DATO = 92;
+                  break;
+                case "05":
+                  DATO = 122;
+                  break;
+                case "06":
+                  DATO = 153;
+                  break;
+                case "07":
+                  DATO = 183;
+                  break;
+                case "08":
+                  DATO = 214;
+                  break;
+                case "09":
+                  DATO = 245;
+                  break;
+                case "10":
+                  DATO = 275;
+                  break;
+                case "11":
+                  DATO = 306;
+                  break;
+                case "12":
+                  DATO = 336;
+                  break;
+                default:
+                  DATO = 0;
+              }
+
+              FIL= parseInt(DATO) + parseInt(day);
+              punto=FIL-10;
+
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", url);
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                         var data = xhr.responseText;
+                         var parser = new DOMParser();
+                         var doc = parser.parseFromString(data, "text/html");
+                         var originalTable = doc.querySelector("table");
+
+                        // Cree una nueva tabla y copie solo las primeras 10 filas
+                        var table = document.createElement("table");
+                        var rows = originalTable.querySelectorAll("tr");
+
+                        var headerRow = document.createElement("tr");
+                        headerRow.innerHTML = "<th>Nro</th><th>Gestión</th><th>Mes</th><th>Día</th><th>Dato T</th><th>Dato H</th><th>Dato P</th><th>Dato FPF</th><th>Estado</th>";
+                        table.appendChild(headerRow);
+
+
+                        for (var i = 0; i < Math.min(10, rows.length); i++) {
+                            table.appendChild(rows[punto].cloneNode(true));
+                            punto++;
+                        }
+
+                        table.style.display = "table";
+                        document.body.appendChild(table);
+
+                        table.style.width = "60%"; // Cambia el ancho al 80% del contenedor
+                        table.style.margin = "-50px 0px 0px 80px"; // Centra la tabla horizontalmente
+                        table.style.border = "1px solid black";
+
+                        var cells = table.getElementsByTagName('td');
+                        for (var i = 0; i < cells.length; i++) {
+                            if (i % 8 === 7) { // Comprueba si estamos en la columna 7 (índices múltiplos de 9)
+                                var cellValue = cells[i].textContent.trim();
+                                if (cellValue === "Alerta Roja") {
+                                    cells[i].style.backgroundColor = "red";
+                                } else if (cellValue === "Alerta Naranja") {
+                                    cells[i].style.backgroundColor = "orange";
+                                } else if (cellValue === "Alerta Amarilla") {
+                                    cells[i].style.backgroundColor = "yellow";
+                                } else if (cellValue === "Verde") {
+                                    cells[i].style.backgroundColor = "green";
+                                }
+                            }
+                            cells[i].style.border = "1px solid black"; // Establecer un borde sólido de 1 píxel en color negro
+                        }
+
+                        // Mostrar la tabla después de que se haya construido
+
+
+
+                        var tableRows = table.querySelectorAll("tr");
+
+                        var chartData = [];
+                        for (var i = 1; i < tableRows.length; i++) {
+                            var cells = tableRows[i].querySelectorAll("td");
+                            var dia = parseInt(cells[2].textContent);
+                            var datoFPF = parseFloat(cells[6].textContent);
+                            chartData.push({ dia, datoFPF });
+                        }
+
+                        var ctx = document.getElementById("chart").getContext("2d");
+                        var chart = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: chartData.map(data => data.dia),
+                                datasets: [{
+                                    label: 'Dato FPF(y) vs dias del mes(x)',
+                                    data: chartData.map(data => data.datoFPF),
+                                    borderColor: 'rgba(75, 192, 192, 1)',
+                                    borderWidth: 2,
+                                    fill: false
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    x: [{
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Día'
+                                        }
+                                    }],
+                                    y: [{
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Dato FPF'
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+
+
+                    }
+                };
+                xhr.send();
+
+              // Paso 2: Copie el contenido de la tabla de Google Sheets a una tabla HTML
+
+                }
+            }
+
+
+            function showTable() {
+                var table = document.querySelector("table");
+                table.style.display = "table"; // Hacer visible la tabla
+            }
+
+
+            function openLink(url) {
+                window.open(url);
+            }
+
+            function openNewPage() {
+                // Abre una nueva página en blanco
+                window.location.href = 'pagina2.html';
+            }
+
+
+    </script>
+        <!-- Tabla generada por JavaScript -->
+    </div>
+
+    <!-- css del grafico -->
+
+
+
+    <div id="info-container" class="general">
+        <input type="text" value="GRUPO 1" readonly class="grupohoracio">
+        <button class="linkATT" type="button" onclick="openLink('https://www.att.gob.bo')">Link a ATT</button>
+        <button class="linkMATERIA" type="button" onclick="openLink('https://siaan.ucb.edu.bo/AcademicoNacional/estudiantes/miMateria/moodleEstudiante?idParalelo=TaT4orWiGC3nWC9yHeF71g%3D%3D&teorico=1&idParaleloPractico=TaT4orWiGC3nWC9yHeF71g%3D%3D&moodle=0')">Link a la Materia</button>
+        <button class="linkFACE" type="button" onclick="openLink('https://docs.google.com/spreadsheets/d/1FneKLoWMoU-7Vf0VJ2av44hIDOKAdLqclgTOdC7Fczw/edit#gid=0')">Link a Base de Datos</button>
+        <button class="linkINFO" type="button" onclick="openNewPage()">Informacion</button>
+
+    </div>
+
+
+
+</body>
+</html>
